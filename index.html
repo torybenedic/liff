@@ -57,14 +57,20 @@
     }
 
     async function scanCode() {
+      const result = await liff.scanCode()
+      document.getElementById("scanCode").append(result.value)
     }
 
     function openWindow() {
+      liff.openWindow({
+        url: "https://www.vitalneutrients.co.th",
+        external: true
+      }]
     }
 
     async function getFriendship() {
-      const friend = await liff.getFriendshio()
-      liff.getElementById("friendship").append(friend.friendFlag)
+      const friend = await liff.getFriendship()
+      document.getElementById("friendship").append(friend.friendFlag)
       if (!friend.friendFlag) {
         if (confirm("จะเพิ่มเพื่อนเลยไหม?")) {
           window.location = "https://line.me/ti/p/%40vitalneutrients"
