@@ -63,6 +63,12 @@
     }
 
     async function getFriendship() {
+      const friend = await liff.getFriendshio()
+      liff.getElementById("friendship").append(friend.friendFlag)
+      if (!friend.friendFlag) {
+        if (confirm("จะเพิ่มเพื่อนเลยไหม?")) {
+          window.location = "https://line.me/ti/p/%40vitalneutrients"
+        }
     }
 
     async function sendMsg() {
@@ -116,7 +122,7 @@
       getEnvironment()
       getUserProfile()
       getContext()
-      // getFriendship()
+      getFriendship()
       // createUniversalLink()
     }
     main()
